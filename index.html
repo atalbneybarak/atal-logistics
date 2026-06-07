@@ -3,11 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a237e">
   <title>את״ל בני ברק</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">טוען...</div>
+  <div id="app">
+    <header class="header">
+      <img src="logo.png" alt="לוגו" class="logo">
+      <h1 class="title">את״ל בני ברק</h1>
+      <p class="subtitle">מחלקת לוגיסטיקה</p>
+    </header>
+
+    <main class="grid">
+      <a href="vehicles.html" class="card blue">
+        <span class="icon">🚗</span>
+        <span class="label">רכב</span>
+      </a>
+      <a href="equipment.html" class="card dark">
+        <span class="icon">📦</span>
+        <span class="label">ציוד ומחסנים</span>
+      </a>
+      <a href="tasks.html" class="card green">
+        <span class="icon">✅</span>
+        <span class="label">משימות</span>
+      </a>
+      <a href="orders.html" class="card orange">
+        <span class="icon">🛒</span>
+        <span class="label">הזמנות</span>
+      </a>
+      <a href="requests.html" class="card teal">
+        <span class="icon">📩</span>
+        <span class="label">פניות שוטרים</span>
+      </a>
+      <a href="general.html" class="card gray">
+        <span class="icon">ℹ️</span>
+        <span class="label">כללי</span>
+      </a>
+    </main>
+  </div>
   <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
