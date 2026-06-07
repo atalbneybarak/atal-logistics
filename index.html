@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>את״ל בני ברק</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="את״ל">
+  <meta name="theme-color" content="#1a237e">
 </head>
 <body>
 
@@ -20,7 +25,7 @@
     </div>
   </div>
 
-  <!-- האפליקציה הראשית — מוסתרת עד כניסה -->
+  <!-- האפליקציה הראשית -->
   <div id="app" style="display:none">
     <header class="header">
       <div class="header-top">
@@ -81,19 +86,21 @@
       location.reload();
     }
 
-    // בדיקה אם כבר מחובר
     if (sessionStorage.getItem('auth') === 'true') {
       document.getElementById('login-screen').style.display = 'none';
       document.getElementById('app').style.display = 'block';
     }
 
-    // כניסה עם Enter
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('password-input')
         .addEventListener('keypress', function(e) {
           if (e.key === 'Enter') checkPassword();
         });
     });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/atal-logistics/sw.js');
+    }
   </script>
 </body>
 </html>
