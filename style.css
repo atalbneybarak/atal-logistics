@@ -1,1 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
 
+body {
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a237e, #283593);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 10px;
+}
+
+.card:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.icon {
+  font-size: 36px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.blue   { background: linear-gradient(135deg, #1565c0, #1976d2); }
+.dark   { background: linear-gradient(135deg, #212121, #424242); }
+.green  { background: linear-gradient(135deg, #2e7d32, #388e3c); }
+.orange { background: linear-gradient(135deg, #e65100, #f57c00); }
+.teal   { background: linear-gradient(135deg, #00695c, #00897b); }
+.gray   { background: linear-gradient(135deg, #455a64, #546e7a); }
