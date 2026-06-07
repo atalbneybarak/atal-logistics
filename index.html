@@ -3,16 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1a237e">
   <title>את״ל בני ברק</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">
+
+  <!-- מסך כניסה -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">🛡️</div>
+      <h1>את״ל בני ברק</h1>
+      <p>מחלקת לוגיסטיקה</p>
+      <input type="password" id="password-input" placeholder="הכנס סיסמה" />
+      <button onclick="checkPassword()">כניסה</button>
+      <p id="error-msg"></p>
+    </div>
+  </div>
+
+  <!-- האפליקציה הראשית — מוסתרת עד כניסה -->
+  <div id="app" style="display:none">
     <header class="header">
-      <img src="logo.png" alt="לוגו" class="logo">
-      <h1 class="title">את״ל בני ברק</h1>
-      <p class="subtitle">מחלקת לוגיסטיקה</p>
+      <div class="header-top">
+        <button class="logout-btn" onclick="logout()">יציאה</button>
+      </div>
+      <div class="header-content">
+        <div class="logo-circle">🛡️</div>
+        <h1 class="title">את״ל בני ברק</h1>
+        <p class="subtitle">מחלקת לוגיסטיקה</p>
+      </div>
     </header>
 
     <main class="grid">
@@ -42,7 +60,40 @@
       </a>
     </main>
   </div>
+
   <script src="config.js"></script>
-  <script src="app.js"></script>
+  <script>
+    const PASSWORD = "atal2024";
+
+    function checkPassword() {
+      const input = document.getElementById('password-input').value;
+      if (input === PASSWORD) {
+        sessionStorage.setItem('auth', 'true');
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+      } else {
+        document.getElementById('error-msg').textContent = 'סיסמה שגויה, נסה שנית';
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem('auth');
+      location.reload();
+    }
+
+    // בדיקה אם כבר מחובר
+    if (sessionStorage.getItem('auth') === 'true') {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+    }
+
+    // כניסה עם Enter
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('password-input')
+        .addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') checkPassword();
+        });
+    });
+  </script>
 </body>
 </html>
